@@ -64,8 +64,3 @@ python run_exp.py --model_tag codet5_large\
 python run_exp.py --model_tag codet5_base\
     --task defect --sub_task none\
     --model defect_codet5_base.bin
-
-# defect large
-python run_exp.py --model_tag codet5_large\
-    --task defect --sub_task none\
-    --model defect_codet5_large.bin
