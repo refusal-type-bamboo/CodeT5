@@ -1,0 +1,4 @@
+[Time: 8m] /home/yunqingy/CodeT5/finetuned_models/translate_java_cs_codet5_base.bin
+[best-bleu] bleu-4: 83.88, em: 64.7000, codebleu: 0.0000
+[Time: 8m] /home/yunqingy/CodeT5/finetuned_models/translate_cs_java_codet5_base.bin
+[best-bleu] bleu-4: 79.71, em: 67.5000, codebleu: 0.0000

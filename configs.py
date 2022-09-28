@@ -24,6 +24,7 @@ def add_args(parser):
     parser.add_argument("--data_dir", type=str, required=True)
     parser.add_argument("--res_dir", type=str, required=True)
     parser.add_argument("--res_fn", type=str, default='')
+    parser.add_argument("--model", type=str, default='ENTER MODEL NAME')
     parser.add_argument("--add_task_prefix", action='store_true', help="Whether to add task prefix for t5 and codet5")
     parser.add_argument("--save_last_checkpoints", action='store_true')
     parser.add_argument("--always_save_model", action='store_true')

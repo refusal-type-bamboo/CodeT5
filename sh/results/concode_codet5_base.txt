@@ -1,0 +1,2 @@
+[Time: 12m] /home/yunqingy/CodeT5/finetuned_models/concode_codet5_base.bin
+[best-bleu] bleu-4: 39.60, em: 22.1500, codebleu: 43.7544

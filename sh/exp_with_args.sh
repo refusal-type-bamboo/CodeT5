@@ -1,4 +1,4 @@
-WORKDIR="your_CodeT5_path/CodeT5"
+WORKDIR="/home/yunqingy/CodeT5"
 export PYTHONPATH=$WORKDIR
 
 TASK=${1}
@@ -16,6 +16,7 @@ WARMUP=${12}
 MODEL_DIR=${13}
 SUMMARY_DIR=${14}
 RES_FN=${15}
+MODEL=${16}
 
 if [[ $DATA_NUM == -1 ]]; then
   DATA_TAG='all'
@@ -84,11 +85,12 @@ fi
 
 CUDA_VISIBLE_DEVICES=${GPU} \
   python ${RUN_FN}  ${MULTI_TASK_AUG}   \
-  --do_train --do_eval --do_eval_bleu --do_test  \
+  --do_eval --do_eval_bleu --do_test  \
   --task ${TASK} --sub_task ${SUB_TASK} --model_type ${MODEL_TYPE} --data_num ${DATA_NUM}  \
   --num_train_epochs ${EPOCH} --warmup_steps ${WARMUP} --learning_rate ${LR}e-5 --patience ${PATIENCE} \
   --tokenizer_name=${TOKENIZER}  --model_name_or_path=${MODEL_PATH} --data_dir ${WORKDIR}/data  \
   --cache_path ${CACHE_DIR}  --output_dir ${OUTPUT_DIR}  --summary_dir ${SUMMARY_DIR} \
   --save_last_checkpoints --always_save_model --res_dir ${RES_DIR} --res_fn ${RES_FN} \
+  --model ${MODEL}\
   --train_batch_size ${BS} --eval_batch_size ${BS} --max_source_length ${SRC_LEN} --max_target_length ${TRG_LEN} \
   2>&1 | tee ${LOG}

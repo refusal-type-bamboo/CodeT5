@@ -4,15 +4,15 @@ import argparse
 
 
 def get_cmd(task, sub_task, model_tag, gpu, data_num, bs, lr, source_length, target_length, patience, epoch, warmup,
-            model_dir, summary_dir, res_fn, max_steps=None, save_steps=None, log_steps=None):
+            model_dir, summary_dir, res_fn, model, max_steps=None, save_steps=None, log_steps=None):
     if max_steps is None:
-        cmd_str = 'bash exp_with_args.sh %s %s %s %d %d %d %d %d %d %d %d %d %s %s %s' % \
+        cmd_str = 'bash exp_with_args.sh %s %s %s %d %d %d %d %d %d %d %d %d %s %s %s %s' % \
                   (task, sub_task, model_tag, gpu, data_num, bs, lr, source_length, target_length, patience, epoch,
-                   warmup, model_dir, summary_dir, res_fn)
+                   warmup, model_dir, summary_dir, res_fn, model)
     else:
-        cmd_str = 'bash exp_with_args.sh %s %s %s %d %d %d %d %d %d %d %d %d %s %s %s %d %d %d' % \
+        cmd_str = 'bash exp_with_args.sh %s %s %s %d %d %d %d %d %d %d %d %d %s %s %s %s %d %d %d' % \
                   (task, sub_task, model_tag, gpu, data_num, bs, lr, source_length, target_length, patience, epoch,
-                   warmup, model_dir, summary_dir, res_fn, max_steps, save_steps, log_steps)
+                   warmup, model_dir, summary_dir, res_fn, model, max_steps, save_steps, log_steps)
     return cmd_str
 
 
@@ -104,6 +104,7 @@ def run_one_exp(args):
                       data_num=args.data_num, bs=bs, lr=lr, source_length=src_len, target_length=trg_len,
                       patience=patience, epoch=epoch, warmup=1000,
                       model_dir=args.model_dir, summary_dir=args.summary_dir,
+                      model=args.model,
                       res_fn='{}/{}_{}.txt'.format(args.res_dir, args.task, args.model_tag))
     print('%s\n' % cmd_str)
     os.system(cmd_str)
@@ -124,6 +125,7 @@ def run_multi_task_exp(args):
                       patience=-1, epoch=-1, warmup=1000,
                       model_dir=args.model_dir, summary_dir=args.summary_dir,
                       res_fn='{}/multi_task_{}.txt'.format(args.res_dir, args.model_tag),
+                      model=args.model,
                       max_steps=max_steps, save_steps=save_steps, log_steps=log_steps)
     print('%s\n' % cmd_str)
     os.system(cmd_str)
@@ -153,6 +155,7 @@ if __name__ == '__main__':
     parser.add_argument("--summary_dir", type=str, default='tensorboard', help='directory to save tensorboard summary')
     parser.add_argument("--data_num", type=int, default=-1, help='number of data instances to use, -1 for full data')
     parser.add_argument("--gpu", type=int, default=0, help='index of the gpu to use in a cluster')
+    parser.add_argument("--model", type=str, default=0, help='model used for testing')
     args = parser.parse_args()
 
     if not os.path.exists(args.res_dir):

@@ -1,0 +1,12 @@
+[Time: 1m] /home/yunqingy/CodeT5/finetuned_models/summarize_ruby_codet5_base.bin
+[best-bleu] bleu-4: 15.34, em: 0.3172, codebleu: 0.0000
+[Time: 2m] /home/yunqingy/CodeT5/finetuned_models/summarize_javascript_codet5_base.bin
+[best-bleu] bleu-4: 15.99, em: 0.5773, codebleu: 0.0000
+[Time: 17m] /home/yunqingy/CodeT5/finetuned_models/summarize_go_codet5_base.bin
+[best-bleu] bleu-4: 19.52, em: 1.8591, codebleu: 0.0000
+[Time: 19m] /home/yunqingy/CodeT5/finetuned_models/summarize_python_codet5_base.bin
+[best-bleu] bleu-4: 20.15, em: 1.7026, codebleu: 0.0000
+[Time: 10m] /home/yunqingy/CodeT5/finetuned_models/summarize_java_codet5_base.bin
+[best-bleu] bleu-4: 20.58, em: 2.4190, codebleu: 0.0000
+[Time: 11m] /home/yunqingy/CodeT5/finetuned_models/summarize_php_codet5_base.bin
+[best-bleu] bleu-4: 26.23, em: 2.3405, codebleu: 0.0000

@@ -1,6 +1,7 @@
+/__pycache__
 /data
 /evaluator
 /finetuned_models
 /pretrained_models
-/sh/results
+/sh/saved_models
 /tokenizer
