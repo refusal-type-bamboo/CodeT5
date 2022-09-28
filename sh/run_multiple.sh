@@ -7,7 +7,7 @@ do
 done
 
 # summarize large
-for LANGUAGE in ruby javascript go python java php:
+for LANGUAGE in ruby javascript go python java php
 do
     python run_exp.py --model_tag codet5_large\
         --task summarize --sub_task ${LANGUAGE}\
@@ -38,7 +38,7 @@ python run_exp.py --model_tag codet5_large\
     --task translate --sub_task java-cs\
     --model translate_java_cs_codet5_large.bin
 
-python run_exp.py --model_tag codet5_base\
+python run_exp.py --model_tag codet5_large\
     --task translate --sub_task cs-java\
     --model translate_cs_java_codet5_large.bin
 
@@ -49,7 +49,7 @@ python run_exp.py --model_tag codet5_base\
 
 python run_exp.py --model_tag codet5_base\
     --task refine --sub_task medium\
-    --model refine_mdeium_codet5_base.bin
+    --model refine_medium_codet5_base.bin
 
 # refine large
 python run_exp.py --model_tag codet5_large\
@@ -58,7 +58,7 @@ python run_exp.py --model_tag codet5_large\
 
 python run_exp.py --model_tag codet5_large\
     --task refine --sub_task medium\
-    --model refine_mdeium_codet5_large.bin
+    --model refine_medium_codet5_large.bin
 
 # defect base
 python run_exp.py --model_tag codet5_base\
